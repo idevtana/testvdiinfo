@@ -1,0 +1,20 @@
+{
+    "_list": [
+        {
+            "title": "Accueil",
+            "url": "localhost:3001"
+        },
+        {
+            "title": "Nos véhicules",
+            "url": "localhost:3001"
+        },
+        {
+            "title": "Nos services",
+            "url": "localhost:3001"
+        },
+        {
+            "title": "Contact",
+            "url": "localhost:3001"
+        }
+    ]
+}
