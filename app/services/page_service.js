@@ -123,7 +123,7 @@ function replaceImageValueWithId(obj) {
         if (obj.hasOwnProperty(key)) {
             if (key === 'image') {
                 // check if last character is a "="
-                if (obj[key].substr(-1) === '=') {
+                if (obj[key].slice(-1) === '=') {
                     obj[key] = obj[key] + obj.id;
                 }
             } else if (typeof obj[key] === 'object') {
