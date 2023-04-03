@@ -82,39 +82,44 @@ export function loadJsonData(pageName) {
         pageElement = parseInt(pageData[1]);
     }
 
-    let jsonData = require(projectRoot + dataPath + '/' + pageName + '.json');
+    try {
+        let jsonData = require(projectRoot + dataPath + '/' + pageName + '.json');
 
-    if (pageElement) {
-        for (let item of jsonData[listSelector]) {
-            if (parseInt(item[elementSelector]) === pageElement) {
-                jsonData = item;
-                break;
+        if (pageElement) {
+            for (let item of jsonData[listSelector]) {
+                if (parseInt(item[elementSelector]) === pageElement) {
+                    jsonData = item;
+                    break;
+                }
             }
         }
-    }
 
-    const toSearch = 'include_data';
-    let jsonToLoad = [];
+        const toSearch = 'include_data';
+        let jsonToLoad = [];
 
-    for (let property in jsonData) {
-        const propertyValue = jsonData[property];
-        if (typeof propertyValue === 'string' && propertyValue.includes(toSearch)) {
-            let jsonPath = propertyValue.replace(toSearch + '(', '').replace(')', '');
-            jsonPath = jsonPath.replace(/'/g, '');
-            jsonPath = dataRoot + jsonPath;
+        for (let property in jsonData) {
+            const propertyValue = jsonData[property];
+            if (typeof propertyValue === 'string' && propertyValue.includes(toSearch)) {
+                let jsonPath = propertyValue.replace(toSearch + '(', '').replace(')', '');
+                jsonPath = jsonPath.replace(/'/g, '');
+                jsonPath = dataRoot + jsonPath;
 
-            jsonToLoad[property] = jsonPath;
+                jsonToLoad[property] = jsonPath;
+            }
         }
+
+        for (let property in jsonToLoad) {
+            const jsonPath = jsonToLoad[property];
+            jsonData[property] = require(jsonPath)[listSelector];
+        }
+
+        replaceImageValueWithId(jsonData);
+
+        return jsonData;
+    } catch (e) {
+        console.log(e.message);
+        return {};
     }
-
-    for (let property in jsonToLoad) {
-        const jsonPath = jsonToLoad[property];
-        jsonData[property] = require(jsonPath)[listSelector];
-    }
-
-    replaceImageValueWithId(jsonData);
-
-    return jsonData;
 }
 
 function replaceImageValueWithId(obj) {

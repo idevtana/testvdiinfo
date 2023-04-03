@@ -40,8 +40,8 @@ for (let pageName of pageNames) {
 
     server.get('/' + pageName, function (req, res) {
         const pageData = getPageData(req, pageName);
-        pageName = pageName.split('/')[0];
-        res.render(pageName + templateExtension, pageData);
+        const templateName = pageName.split('/')[0];
+        res.render(templateName + templateExtension, pageData);
     });
 }
 
