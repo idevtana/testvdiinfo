@@ -6,9 +6,15 @@
             "url": "localhost:3001"
         },
         "main_text": "Le garage GDA est spécialisé dans la réparation, l'entretien et la vente de véhicules de toutes marques. Nous sommes situés à Bron, près de Lyon, et nous vendons sur toute la région.",
-        "legal_notices": {
-            "text": "Mentions légales",
-            "url": "localhost:3001"
-        }
+        "legal_notices": [
+            {
+                "text": "Mentions légales",
+                "url": "localhost:3001"
+            },
+            {
+                "text": "Plan",
+                "url": "localhost:3001"
+            }
+        ]
     }
 }
