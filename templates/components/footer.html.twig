@@ -1,0 +1,34 @@
+<!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer__devis">
+                <p>{{ footer.estimate_text }}</p>
+                <button class="button__contact">
+                    <img src="{{ assets('images/mail-img.png') }}" alt="contact">
+                    {{ footer.button.text }}
+                </button>
+            </div>
+            <div class="footer__text">
+                <p>
+                    {{ footer.main_text }}
+                </p>
+            </div>
+            <div class="footer__legal">
+                <div class="footer__legal-menu">
+                    <ul>
+                        {% for link in footer.legal_notices %}
+                            <li><a href="{{ link.url }}">{{ link.text }}</a></li>    
+                            {# {% if loop.last == false %}|{% endif %} #}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="footer__legal-copyright">
+                    @ 2023 GDA Ventes Voitures. Réalisé par <a href="#">GDA</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__map">
+            <iframe src="{{ googlemap_url }}" frameborder="0" width="100%" height="340px"></iframe>
+        </div>
+    </div>
+    <!-- footer -->

@@ -24,6 +24,7 @@
                     </div>
                     <div class="content__aside-inputrange">
                         <label>Kilométrage</label>
+                        <div class="content__aside-inputrange__track"></div>
                         <div class="content__aside-inputrange__minrange">
                             <input type="range" min="3000" max="109000" value="3000" class="slider" id="rangemin">
                             <span><span class="inner">3000</span> KM</span>
@@ -35,6 +36,7 @@
                     </div>
                     <div class="content__aside-inputrange">
                         <label>Année</label>
+                        <div class="content__aside-inputrange__track"></div>
                         <div class="content__aside-inputrange__minrange">
                             <input type="range" min="2005" max="2023" value="2005" class="slider" id="rangemin">
                             <span><span class="inner">2005</span></span>
@@ -46,6 +48,7 @@
                     </div>
                     <div class="content__aside-inputrange">
                         <label>Tranche de prix</label>
+                        <div class="content__aside-inputrange__track"></div>
                         <div class="content__aside-inputrange__minrange">
                             <input type="range" min="12000" max="59000" value="12000" class="slider" id="rangemin">
                             <span><span class="inner">12000</span>&euro;</span>
@@ -127,39 +130,6 @@
     </div>
     <!-- content -->
 
-    <!-- footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="footer__devis">
-                <p>{{ footer.estimate_text }}</p>
-                <button class="button__contact">
-                    <img src="{{ assets('images/mail-img.png') }}" alt="contact">
-                    {{ footer.button.text }}
-                </button>
-            </div>
-            <div class="footer__text">
-                <p>
-                    {{ footer.main_text }}
-                </p>
-            </div>
-            <div class="footer__legal">
-                <div class="footer__legal-menu">
-                    <ul>
-                        {% for link in footer.legal_notices %}
-                            <li><a href="{{ link.url }}">{{ link.text }}</a></li>    
-                            {# {% if loop.last == false %}|{% endif %} #}
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="footer__legal-copyright">
-                    @ 2023 GDA Ventes Voitures. Réalisé par <a href="#">GDA</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer__map">
-            <iframe src="{{ googlemap_url }}" frameborder="0" width="100%" height="340px"></iframe>
-        </div>
-    </div>
-    <!-- footer -->
+    
 {% endblock %}
 

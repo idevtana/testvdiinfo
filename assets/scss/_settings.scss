@@ -30,97 +30,61 @@ $xs: 600px;
     position: absolute;
     width: 100%;
    
-    input[type=range]::-moz-range-track {
+    input[type=range]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         width: 100%;
-        height: 5px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: $secondary;
-        border-radius: 5px;
+        pointer-events: none;
+        background-color: transparent;
+        outline: none;
+        position: absolute;
+        margin: auto;
     }
-    input[type=range]::-moz-range-thumb {
+    input[type="range"]::-webkit-slider-runnable-track{
+        -webkit-appearance: none;
+        // height: 5px;
+    }
+    input[type="range"]::-moz-range-track{
+        -moz-appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-ms-track{
+        appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance: none;
         height: 12px;
         width: 12px;
-        border-radius: 50%;
-        background: $secondary;
-        border-color: $secondary;
+        background-color: $secondary;
         cursor: pointer;
+        border-radius: 50%;
+        pointer-events: all;
+        margin-top: 3px;
+    }
+    input[type="range"]::-moz-range-thumb{
         -webkit-appearance: none;
+        height: 12px;
+        width: 12px;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: $secondary;
         pointer-events: all;
     }
-
-    
-
-    input[type=range]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 5px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: $secondary;
-        border-radius: 5px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-        height: 12px;
-        width: 12px;
-        border-radius: 5px;
-        background: $secondary;
-        border-color: $secondary;
-        cursor: pointer;
+    input[type="range"]::-ms-thumb{
         -webkit-appearance: none;
-        margin-top: -4px;
-    }
-    input[type=range]:focus::-webkit-slider-runnable-track {
-        background: $secondary;
-    }
-
-    input[type=range]::-ms-track {
-        width: 100%;
-        height: 5px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: transparent;
-        border-color: transparent;
-        color: transparent;
-    }
-    input[type=range]::-ms-fill-lower {
-        background: $secondary;
-        // border: 1px solid #000000;
-        border-radius: 5px;
-        // box-shadow: 1px 1px 1px #000000;
-    }
-    input[type=range]::-ms-fill-upper {
-        background: $secondary;
-        border-radius: 5px;
-        // border: 1px solid #000000;
-        // box-shadow: 1px 1px 1px #000000;
-    }
-    input[type=range]::-ms-thumb {
-        margin-top: 1px;
         height: 12px;
         width: 12px;
-        border-radius: 5px;
-        background: $secondary;
         cursor: pointer;
-        // box-shadow: 1px 1px 1px #000000;
-        // border: 1px solid #000000;
+        border-radius: 50%;
+        background-color: $secondary;
+        pointer-events: all;
     }
-
-    input[type=range]{
-        // -webkit-appearance: none;
-        background: transparent;
-        width: 100%;
-        appearance: none;
-        height: 2px;
-        width: 100%;
-        position: absolute;
-        background-color: #C6C6C6;
-        // pointer-events: none;
+    input[type="range"]:active::-webkit-slider-thumb{
+        background-color: #fff;
+        border: 3px solid $secondary;
     }
-    input[type=range]:focus {
-        outline: none;
-    }
-   
-  
 }
 
 
