@@ -60,7 +60,6 @@
             }
         }
         &__maxrange{
-            
             @include input-range;
             > span{
                 position: absolute;
