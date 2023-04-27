@@ -1,0 +1,48 @@
+<!-- header -->
+    <div class="header">
+        <div class="header__info">
+            <div class="container header__infolist">
+                {% for info in topmenu %}
+                    <span>
+                        {{ info }}
+                    </span>
+                {% endfor %}
+                <span>
+                    <img src="{{ assets('images/phone-vector.png') }}" alt="">
+                    {{ parameters.phone }} | {{ parameters.mobile }}
+                </span>
+                <a href="mailto:{{ parameters.email }}">
+                    <img src="{{ assets('images/mail-vector.png') }}" alt="">
+                    {{ parameters.email }}
+                </a>
+            </div>
+        </div>
+        <div class="header__menu">
+            <div class="container">
+                <div class="header__logo">
+                    <a href="/">
+                        <img src="{{ assets('images/gda-logo.png') }}" alt="logo">
+                    </a>
+                </div>
+                <div class="header__menulist">
+                    <a href="#" class="header__menulist--mobileaction">Menu</a>
+                    <ul>
+                        {% for menu in mainheadermenu %}
+                            <li><a href="{{ menu.url }}" class="header__menulink">{{ menu.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header__banner" style="background-image: url({{ assets('images/pexels-denys-gromov.png') }});">
+            <div class="header__banner-content">
+                <div class="header_breadcrumbs">
+                    Accueil/<b>Véhicules d'occasion</b>
+                </div>
+                <div class="header__title">
+                    <h1>Véhicules d'occasion</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header -->
