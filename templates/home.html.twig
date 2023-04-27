@@ -2,8 +2,164 @@
 
 {% block body_id %}page-home{% endblock %}
 
+
 {% block content %}
-    {{ dump(cars) }}
-    {{ dump() }}
+
+    
+   
+    <!-- content -->
+    <div class="content">
+        <div class="container">
+            <!-- aside -->
+            <div class="content__aside">
+                <h3>Critères de choix</h3>
+                
+                <form class="content__aside-form">
+                    <div>
+                        <select name="marque" id="marque">
+                            <option value="">Marque</option>
+                            <option value="">Marque 1</option>
+                            <option value="">Marque 2</option>
+                        </select>
+                    </div>
+                    <div class="content__aside-inputrange">
+                        <label>Kilométrage</label>
+                        <div class="content__aside-inputrange__minrange">
+                            <input type="range" min="3000" max="109000" value="3000" class="slider" id="myRangeMin">
+                            <span><span class="inner">3000</span> KM</span>
+                        </div>
+                        <div class="content__aside-inputrange__maxrange">
+                            <input type="range" min="3000" max="109000" value="109000" class="slider" id="myRangeMin">
+                            <span><span class="inner">109000</span> KM</span>
+                        </div>
+                    </div>
+                    <div class="content__aside-inputrange">
+                        <label>Année</label>
+                        <div class="content__aside-inputrange__minrange">
+                            <input type="range" min="2005" max="2023" value="2005" class="slider" id="myRangeMin">
+                            <span><span class="inner">2005</span></span>
+                        </div>
+                        <div class="content__aside-inputrange__maxrange">
+                            <input type="range" min="2005" max="2023" value="2023" class="slider" id="myRangeMin">
+                            <span><span class="inner">2023</span></span>
+                        </div>
+                    </div>
+                    <div class="content__aside-inputrange">
+                        <label>Tranche de prix</label>
+                        <div class="content__aside-inputrange__minrange">
+                            <input type="range" min="12000" max="59000" value="12000" class="slider" id="myRangeMin">
+                            <span><span class="inner">12000</span>&euro;</span>
+                        </div>
+                        <div class="content__aside-inputrange__maxrange">
+                            <input type="range" min="12000" max="59000" value="59000" class="slider" id="myRangeMin">
+                            <span><span class="inner">59000</span>&euro;</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="content__aside-form-btnsubmit">Rechercher</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="content__aside-bloc_contact">
+                    <p>
+                    <b>Vous recherchez un véhicule</b> en particulier ? <b>Nous le trouvons</b> pour vous !
+                    </p>
+                    <button class="button__contact">
+                        <img src="{{ assets('images/mail-img.png') }}" alt="contact">
+                        Envoyer un message
+                    </button>
+                </div>
+            </div>
+            <!-- aside -->
+
+            <!-- grid -->
+            <div class="content__grid">
+
+                <p>
+                    Retrouvez tous nos véhicules d'occasion. Vous avez la possibilité de les classer par marque, prix, etc. Enjoy :)
+                </p>
+                <div class="content__grid-countresult">54 Véhicules d'occasion</div>
+                <div class="content__grid-layout">
+                    {% for car in cars %}
+                        <div class="content__grid-layout__item" style="background-image: url({{ car.image|default('https://fakeimg.pl/350x200/') }})">
+                            <div class="content__grid-layout__item-before-desc">
+                                <h3 class="content__grid-layout__item-title">
+                                    {{ car.name }}
+                                </h3>
+                                <div class="content__grid-layout__item-price">
+                                    <span>{{ car.price }}</span>
+                                </div>
+                            </div>
+                            <div class="content__grid-layout__item-desc">
+                                <ul>
+                                    <li>
+                                        <img src="{{ assets('images/station-essence.png') }}" alt="fuel">
+                                        {{ car.fuel }}
+                                    </li>
+                                    <li>
+                                        <img src="{{ assets('images/road.png') }}" alt="fuel">
+                                        {{ car.kilometers }}
+                                    </li>
+                                    <li>
+                                        <img src="{{ assets('images/station-essence.png') }}" alt="fuel">
+                                        1.5 dCi
+                                    </li>
+                                    <li>
+                                        <img src="{{ assets('images/calendar.png') }}" alt="fuel">
+                                        {{ car.year }}
+                                    </li>
+                                    <li>
+                                        <img src="{{ assets('images/puissance.png') }}" alt="fuel">
+                                        {{ car.horsepower }}
+                                    </li>
+                                    <li>
+                                        <img src="{{ assets('images/manual-transmission.png') }}" alt="fuel">
+                                        {{ car.transmission }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- grid -->
+        </div>
+    </div>
+    <!-- content -->
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer__devis">
+                <p>{{ footer.estimate_text }}</p>
+                <button class="button__contact">
+                    <img src="{{ assets('images/mail-img.png') }}" alt="contact">
+                    {{ footer.button.text }}
+                </button>
+            </div>
+            <div class="footer__text">
+                <p>
+                    {{ footer.main_text }}
+                </p>
+            </div>
+            <div class="footer__legal">
+                <div class="footer__legal-menu">
+                    <ul>
+                        {% for link in footer.legal_notices %}
+                            <li><a href="{{ link.url }}">{{ link.text }}</a></li>    
+                            {# {% if loop.last == false %}|{% endif %} #}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="footer__legal-copyright">
+                    @ 2023 GDA Ventes Voitures. Réalisé par <a href="#">GDA</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__map">
+            <iframe src="{{ googlemap_url }}" frameborder="0" width="100%" height="340px"></iframe>
+        </div>
+    </div>
+    <!-- footer -->
 {% endblock %}
 
