@@ -1,0 +1,14 @@
+.content{
+    h3{
+        text-transform: uppercase;
+        @include font(600, 22px, 28px)   
+    }
+    
+    .container{
+        align-items: flex-start;
+        padding: 3rem 0;
+    }
+    * {
+        color: $secondary;
+    }
+}

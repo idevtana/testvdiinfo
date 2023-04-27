@@ -1,0 +1,90 @@
+.footer{
+    background-color: $secondary;
+    color: white;
+    .container{
+        align-items: baseline;
+        justify-content: center;
+        padding: 4rem 0;
+    }
+    &__legal-menu{
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+    &__legal,
+    &__devis{
+        width: 25%;
+    }
+    &__text{
+        width: 50%;
+        @include font(400, 14px, 17px, 'Sen');
+        @include flex(column, flex-start, flex-start);
+        p{
+            text-align: left;
+            margin: 0;
+        }
+    }
+    &__devis{
+
+        @include flex(column, flex-start, flex-start);
+        
+        p{
+            @include font(400, 16px, 24px)
+        }
+    }
+    &__legal{
+        @include flex(column, flex-start, flex-end);
+
+        &-menu{
+            ul{
+                li{
+                    border-right: 1px solid #fff;
+                    margin-bottom: 1rem;
+                    a{
+                        padding: 5px;
+                        @include font(600, 16px, 24px)
+                    }
+                }
+                > li:last-child{
+                    border-width: 0;
+                }
+            }
+        }
+        &-copyright{
+            
+            @include font(400, 14px, 17px);
+            a{
+                color: white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $md){
+    .footer{
+        .container{
+            flex-direction: column;
+            align-items: center;
+        }
+        *{
+            justify-content: center;
+            align-items: center;
+        }
+        
+        &__devis,
+        &__text,
+        &__legal
+        {
+            margin-bottom: 2rem;
+            width: 100%;
+            text-align: center;
+
+        }
+        &__text{
+            p{
+                text-align: center;
+            }
+        }
+    }
+}

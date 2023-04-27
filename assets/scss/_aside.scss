@@ -1,0 +1,92 @@
+.content__aside{
+    background-color: $bgsecondary;
+    position: relative;
+    width: 30%;
+    max-width: 412px!important;
+    padding: 2rem;
+    &-bloc_contact{
+        background-color: $secondary;
+        padding: 1rem 2rem 3rem 2rem;
+        .button__contact{
+            width: 100%;
+        }
+        p, b{
+            color: white;
+            @include font(400, 22px, 28px)
+        }
+        b{
+            font-weight: bold;
+        }
+    }
+    hr{
+        border: 1px solid #787B80;
+        margin: 2rem 0;
+    }
+    &-form{
+        
+        input,
+        button,
+        select{
+            width: 100%;
+        }
+        select{
+            height: 48px;
+            background: #FFFFFF;
+            border: 1px solid #787B80;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        button{
+            height: 50px;
+            background: #E80000;
+            border-radius: 3px;
+            border-width: 0;
+            color: #fff;
+            @include font(700, 16px, 26px, 'Sen')
+        }
+
+    }
+    &-inputrange{
+        margin-top: 1rem;
+        height: 75px;
+        position: relative;
+        &__minrange{
+            @include input-range;
+
+            > span{
+                position: absolute;
+                left: 0;
+                top: 25px;
+            }
+        }
+        &__maxrange{
+            
+            @include input-range;
+            > span{
+                position: absolute;
+                right: 0;
+                top: 25px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $md){
+    .content__aside{
+        
+        &-bloc_contact{
+            p,b{
+                font-size: 16px;
+            }
+        }
+        .button__contact{
+            padding: 5px;
+            line-height: 20px;
+        }
+    }
+}
+@media screen and (max-width: $sm){
+    .content__aside{
+        width: 100%;
+    }
+}

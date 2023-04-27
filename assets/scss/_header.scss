@@ -1,0 +1,124 @@
+.header{
+    
+    &__info{
+        background-color: $secondary;
+        color: white;
+        height: 51px;
+        @include font(400, 14px, 21px, 'Sen');
+        * {
+            text-decoration: none;
+            color: white;
+        }
+    }
+    &__infolist{
+        a, span{
+            @include flex(row, center, center);
+        }
+        img{
+            margin-right: 5px;
+            width: 20px;
+            height: auto;
+        }
+    }
+
+    &__menulist{
+        height: 96px;
+        &--mobileaction{
+            display: none;
+        }
+        > ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            @include flex(row, space-between);
+
+            a{
+                text-decoration: none;
+                color: black;
+                text-transform: uppercase;
+                padding: 2rem 1rem;
+                @include font(600, 16px, 20px);
+               
+            }
+            > li:last-child{
+                a{
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    &__banner{
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(50, 15, 0, 0.5);
+            z-index: 1;
+        }
+        color: white;
+        height: 264px;
+        &-content{
+            @include flex(column, center);
+            z-index: 5;
+            position: relative;
+        }
+        h1 {
+            @include font(bold, 40px, 50.28px);
+            text-transform: uppercase;
+            margin: 0;
+        }
+    }
+
+    @media screen and (max-width: $md){
+        &__info{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: $sm){
+    .header{
+        &__title{
+            text-align: center;
+        }
+        .container{
+            flex-direction: row;
+        }
+        &__menulist{
+            display: flex;
+            align-items: center;
+            &--mobileaction{
+                display: block;
+                color: #000;
+                font-weight: bold;
+                cursor: pointer;
+                &.active{
+                    ~ ul{
+                        visibility: visible;
+                    }
+                }
+            }
+            ul{
+                flex-direction: column;
+                align-items: flex-start;
+                top: 100px;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                height: auto!important;
+                background-color: #fff;
+                position: absolute;
+                padding: 20px;
+                visibility: hidden;
+            }
+        }
+    }
+}

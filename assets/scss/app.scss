@@ -1,3 +1,11 @@
-body {
-    background-color: red;
-}
+@import url('https://fonts.googleapis.com/css2?family=Sen&family=Source+Sans+Pro&display=swap');
+
+@import 'colors';
+@import 'settings';
+@import 'content';
+@import 'aside';
+@import 'grid';
+@import 'header';
+@import 'footer';
+
+

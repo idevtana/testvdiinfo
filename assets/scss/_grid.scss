@@ -1,0 +1,107 @@
+.content__grid{
+    width: 70%;
+    padding: 20px;
+    p{
+        @include font(400, 16px, 19px, 'Sen')   
+    }
+    &-countresult{
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        @include font(600, 22px, 28px)   
+    }
+    &-layout{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+
+        &__item{
+
+            min-height: 343px;
+            border-radius: 6px;
+            position: relative;
+            padding: 2rem;
+            
+            @include flex(column, flex-end, flex-start);
+            
+            > div{
+                position: relative;
+                z-index: 5;
+            }
+            *{
+            
+                color: white;
+            }
+            &::after{
+                display:block;
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                background-color: rgba(0,0,0,0.3);
+                border-radius: 6px;
+                z-index: 1;
+            }
+
+            &-before-desc{
+                width: 100%;
+                margin-bottom: 1rem;
+                @include flex(row, flex-start, flex-end)
+            }
+            
+            &-title{
+                margin: 0!important;
+            }
+            &-desc{
+                width: 100%;
+                ul {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-gap: 10px;
+                    li{
+                        img{
+                            margin-right: 5px;
+                        }
+                        @include flex(row, flex-start, center)
+                    }
+                }
+            }
+            &-price{
+                background: #E80000;
+                margin-left: 1rem;
+                padding: 0.2rem 1rem;
+                @include font(400, 16px, 19px, 'Sen');
+            }
+        }
+    }
+    @media screen and (max-width: $md){
+        &-layout{
+            grid-gap: 10px;
+            grid-template-columns: 50% 50%;
+            &__item{
+                padding: 1rem;
+                &-before-desc{
+                    @include flex(column, end, flex-start)
+                }
+                &-price{
+                    margin-left: 0;
+                }
+            }
+            &__item-desc{
+                display: none;
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width: $sm){
+    .content__grid{
+        width: 100%;
+        &-layout{
+            grid-gap: 10px;
+            grid-template-columns: 100%;
+        }
+    }
+}
