@@ -1,12 +1,12 @@
+//Screens & width
 $max-width: 1292px;
-
 $lg: 1200px;
 $md: 992px;
 $sm: 768px;
 $xs: 600px;
 
 
-
+//Mixins
 @mixin max-width{
     max-width: $max-width;
     width: 100%;
@@ -89,10 +89,7 @@ $xs: 600px;
 
 
 
-
-
-
-
+// Init Styles
 html,
 body {
   margin: 0;
