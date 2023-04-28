@@ -85,6 +85,11 @@ $xs: 600px;
         background-color: #fff;
         border: 3px solid $secondary;
     }
+    @media screen and (max-width: $md) {
+        input[type=range]{
+            pointer-events: all;
+        }
+    }
 }
 
 
@@ -105,6 +110,9 @@ ul{
     margin: 0;
     padding: 0;
     @include flex(row, space-between);
+}
+button{
+    cursor: pointer;
 }
 
 .container{
