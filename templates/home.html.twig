@@ -22,44 +22,44 @@
                             <option value="">Marque 2</option>
                         </select>
                     </div>
-                    <div class="content__aside-inputrange">
+                    <div class="content__aside-inputrange kilometer">
                         <label>Kilométrage</label>
                         <div class="content__aside-inputrange__track"></div>
                         <div class="content__aside-inputrange__minrange">
-                            <input type="range" min="3000" max="109000" value="3000" class="slider" id="rangemin">
+                            <input type="range" min="3000" max="109000" value="3000" class="slider-rangemin" id="rangemin">
                             <span><span class="inner">3000</span> KM</span>
                         </div>
                         <div class="content__aside-inputrange__maxrange">
-                            <input type="range" min="3000" max="109000" value="109000" class="slider" id="rangemax">
+                            <input type="range" min="3000" max="109000" value="109000" class="slider-rangemax" id="rangemax">
                             <span><span class="inner">109000</span> KM</span>
                         </div>
                     </div>
-                    <div class="content__aside-inputrange">
+                    <div class="content__aside-inputrange year">
                         <label>Année</label>
                         <div class="content__aside-inputrange__track"></div>
                         <div class="content__aside-inputrange__minrange">
-                            <input type="range" min="2005" max="2023" value="2005" class="slider" id="rangemin">
+                            <input type="range" min="2005" max="2023" value="2005" class="slider-rangemin" id="rangemin">
                             <span><span class="inner">2005</span></span>
                         </div>
                         <div class="content__aside-inputrange__maxrange">
-                            <input type="range" min="2005" max="2023" value="2023" class="slider" id="rangemax">
+                            <input type="range" min="2005" max="2023" value="2023" class="slider-rangemax" id="rangemax">
                             <span><span class="inner">2023</span></span>
                         </div>
                     </div>
-                    <div class="content__aside-inputrange">
+                    <div class="content__aside-inputrange price">
                         <label>Tranche de prix</label>
                         <div class="content__aside-inputrange__track"></div>
                         <div class="content__aside-inputrange__minrange">
-                            <input type="range" min="12000" max="59000" value="12000" class="slider" id="rangemin">
+                            <input type="range" min="12000" max="59000" value="12000" class="slider-rangemin" id="rangemin">
                             <span><span class="inner">12000</span>&euro;</span>
                         </div>
                         <div class="content__aside-inputrange__maxrange">
-                            <input type="range" min="12000" max="59000" value="59000" class="slider" id="rangemax">
+                            <input type="range" min="12000" max="59000" value="59000" class="slider-rangemax" id="rangemax">
                             <span><span class="inner">59000</span>&euro;</span>
                         </div>
                     </div>
                     <div>
-                        <button type="submit" class="content__aside-form-btnsubmit">Rechercher</button>
+                        <button type="button" class="content__aside-form-btnsubmit">Rechercher</button>
                     </div>
                 </form>
                 <hr>
@@ -84,7 +84,7 @@
                 <div class="content__grid-countresult">54 Véhicules d'occasion</div>
                 <div class="content__grid-layout">
                     {% for car in cars %}
-                        <a href="#" class="content__grid-layout__item" style="background-image: url({{ car.image|default('https://fakeimg.pl/350x200/') }})">
+                        <a href="#" class="content__grid-layout__item active" style="background-image: url({{ car.image|default('https://fakeimg.pl/350x200/') }})" data-km="{{car.kilometers}}" data-year="{{ car.year }}" data-price="{{ car.price }}">
                             <div class="content__grid-layout__item-before-desc">
                                 <h3 class="content__grid-layout__item-title">
                                     {{ car.name }}
