@@ -84,7 +84,7 @@
                 <div class="content__grid-countresult">54 Véhicules d'occasion</div>
                 <div class="content__grid-layout">
                     {% for car in cars %}
-                        <div class="content__grid-layout__item" style="background-image: url({{ car.image|default('https://fakeimg.pl/350x200/') }})">
+                        <a href="#" class="content__grid-layout__item" style="background-image: url({{ car.image|default('https://fakeimg.pl/350x200/') }})">
                             <div class="content__grid-layout__item-before-desc">
                                 <h3 class="content__grid-layout__item-title">
                                     {{ car.name }}
@@ -95,33 +95,43 @@
                             </div>
                             <div class="content__grid-layout__item-desc">
                                 <ul>
+                                    {% if car.fuel %}
                                     <li>
                                         <img src="{{ assets('images/station-essence.png') }}" alt="fuel">
                                         {{ car.fuel }}
                                     </li>
+                                    {% endif %}
+                                    {% if car.kilometers %}
                                     <li>
                                         <img src="{{ assets('images/road.png') }}" alt="fuel">
                                         {{ car.kilometers }}
                                     </li>
+                                    {% endif %}
                                     <li>
                                         <img src="{{ assets('images/station-essence.png') }}" alt="fuel">
                                         1.5 dCi
                                     </li>
+                                    {% if car.year %}
                                     <li>
                                         <img src="{{ assets('images/calendar.png') }}" alt="fuel">
                                         {{ car.year }}
                                     </li>
+                                    {% endif %}
+                                    {% if car.horsepower %}
                                     <li>
                                         <img src="{{ assets('images/puissance.png') }}" alt="fuel">
                                         {{ car.horsepower }}
                                     </li>
+                                    {% endif %}
+                                    {% if car.transmission %}
                                     <li>
                                         <img src="{{ assets('images/manual-transmission.png') }}" alt="fuel">
                                         {{ car.transmission }}
                                     </li>
+                                    {% endif %}
                                 </ul>
                             </div>
-                        </div>
+                        </a>
                     {% endfor %}
                 </div>
             </div>
